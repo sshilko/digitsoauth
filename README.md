@@ -30,6 +30,14 @@ $account = new \Digitsoauth\Account($accessToken,
 #or Zend_Http_Response (error)
 $result = $account->verifyCredentials();
 
+if ($result instanceof \Zend_Http_Response) {
+    #process errors (network, credentials, ...)
+    echo (string) $result;
+} else {
+    #got the response array with digits identifier & phone number
+    $digitsId    = $result['id_str'];
+    $digitsPhone = $result['phone_number'];
+}
 
 ```
 
