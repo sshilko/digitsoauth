@@ -49,8 +49,6 @@ class Fabric
 
         $client->setToken($ztoken);
 
-        $client->setAdapter();
-
         $this->client = $client;
     }
 
