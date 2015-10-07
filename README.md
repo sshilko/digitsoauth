@@ -8,6 +8,8 @@ Client has to send clientToken & clientTokenSecret for backend to validate them.
 
 Backend needs to know Consumer Key&Secret for HMAC signing of oAuth request to [api.digits.com](https://api.digits.com/1.1/sdk/account.json)
 
+Uses ZendFramework 1 Zend Oauth Client parts.
+
 #### Requirements
 
 * ZendFramework 1 [library](https://github.com/zendframework/zf1) for Zend_Oauth_Client 
