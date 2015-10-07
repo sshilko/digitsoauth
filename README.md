@@ -4,8 +4,9 @@ Digitsoauth (Verifying a User)
 Validate users that are authenticated with phone numbers via Fabric.io / Digits (Twitter).
 The initial purpose is server-side validating Fabric tokens obtained from mobile client.
 
-Client has to send cliektToken & clientTokenSecret for backend to validate them.
-Backend needs to know Consumer Key&Secret for HMAC signing of oAuth request to api.digits.com [resource](https://api.digits.com/1.1/sdk/account.json)
+Client has to send clientToken & clientTokenSecret for backend to validate them.
+
+Backend needs to know Consumer Key&Secret for HMAC signing of oAuth request to [api.digits.com](https://api.digits.com/1.1/sdk/account.json)
 
 #### Requirements
 
