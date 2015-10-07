@@ -1,0 +1,28 @@
+{
+    "name": "sshilko/digitsoauth",
+    "description": "Fabric.io (Digits) Account verification (OAuth)",
+    "type": "library",
+    "support": {
+        "issues": "https://github.com/sshilko/digitsoauth/issues"
+    },
+    "keywords": ["digits", "fabric", "verify", "credentials", "verifyCredentials", "api.digits.com", "twitter", "oauth", "sdk"],
+    "homepage": "https://github.com/sshilko/digitsoauth",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergey Shilko",
+            "email": "contact@sshilko.com",
+            "homepage": "http://sshilko.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "zendframework/zendframework1": "1.12.13",
+    },
+    "conflict": {
+    },
+    "autoload": {
+        "psr-4": { "Digitsoauth\\": "src/" }
+    }
+}
