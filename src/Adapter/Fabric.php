@@ -10,6 +10,9 @@ class Fabric
 
     private $client;
 
+    private $connectTimeout = 3;
+    private $totalTimeout   = 6;
+
     /**
      * HMAC signing
      * Hmac = f(tokenSecret, consumerSecret)
@@ -24,11 +27,19 @@ class Fabric
         $this->url          = $resourceURL;
         $this->token        = $oauthToken;
 
+        $config = array('adapter' => 'Zend_Http_Client_Adapter_Curl',
+                        'timeout' => $this->totalTimeout,
+                        'curloptions' => array(CURLOPT_CONNECTTIMEOUT => $this->connectTimeout,
+                                               CURLOPT_TIMEOUT        => $this->totalTimeout));
+
         $client = new \Zend_Oauth_Client(array('consumerKey'     => $consumerKey,
                                                'consumerSecret'  => $consumerSecret,
                                                'signatureMethod' => self::SIGN_METHOD,
                                                'version'         => self::OAUTHVERSION
-                                         ), $resourceURL);
+                                         ),
+                                         $resourceURL,
+                                         $config);
+
         $client->setRequestScheme(\Zend_Oauth::REQUEST_SCHEME_HEADER);
         $client->setRequestMethod(\Zend_Oauth::GET);
 
@@ -38,10 +49,13 @@ class Fabric
 
         $client->setToken($ztoken);
 
+        $client->setAdapter();
+
         $this->client = $client;
     }
 
-    public function request() {
+    public function request()
+    {
         $zend_http_response = $this->client->request();
         if ($zend_http_response->isSuccessful()) {
             return \Zend_Json::decode($zend_http_response->getBody());

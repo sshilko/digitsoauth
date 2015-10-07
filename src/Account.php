@@ -28,7 +28,8 @@ class Account
      *
      * @return mixed|\Zend_Http_Response
      */
-    public function verifyCredentials() {
+    public function verifyCredentials()
+    {
         $result = $this->adapter->request();
         return $result;
     }
