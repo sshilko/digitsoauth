@@ -18,7 +18,7 @@
     ],
     "require-dev": {
         "php": ">=5.3.0",
-        "zendframework/zendframework1": ">=1.12.13",
+        "zendframework/zendframework1": ">=1.12.13"
     },
     "conflict": {
     },
